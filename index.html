@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Personnel Sécurisé</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Écran de verrouillage -->
+    <div id="lockScreen" class="screen active">
+        <div class="lock-container">
+            <h1>Journal Personnel</h1>
+            <p id="lockMessage">Entrez votre mot de passe pour accéder à votre journal</p>
+            
+            <div id="passwordSection">
+                <input type="password" id="passwordInput" placeholder="Mot de passe" class="password-input">
+                <button id="unlockBtn" class="btn primary">Déverrouiller</button>
+            </div>
+            
+            <div id="setupSection" class="hidden">
+                <input type="password" id="setupPasswordInput" placeholder="Nouveau mot de passe" class="password-input">
+                <input type="password" id="confirmPasswordInput" placeholder="Confirmez le mot de passe" class="password-input">
+                <button id="setupBtn" class="btn primary">Créer mon journal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interface principale du journal -->
+    <div id="journalScreen" class="screen">
+        <header class="journal-header">
+            <h1>Mon Journal</h1>
+            <div class="header-actions">
+                <span id="entryCount">0 entrées</span>
+                <button id="lockBtn" class="btn secondary">Verrouiller</button>
+            </div>
+        </header>
+
+        <main class="journal-main">
+            <!-- Section nouvelle entrée -->
+            <section id="newEntry" class="entry-section">
+                <h2>Nouvelle entrée</h2>
+                <input type="text" id="entryTitle" placeholder="Titre de l'entrée" class="title-input">
+                <textarea id="entryContent" placeholder="Écrivez vos pensées..." class="content-textarea"></textarea>
+                <div class="entry-actions">
+                    <button id="saveBtn" class="btn primary">Sauvegarder</button>
+                    <button id="clearBtn" class="btn secondary">Effacer</button>
+                </div>
+            </section>
+
+            <!-- Section liste des entrées -->
+            <section id="entriesList" class="entries-section">
+                <h2>Mes entrées</h2>
+                <div id="entriesContainer" class="entries-container">
+                    <p class="empty-state">Aucune entrée pour le moment</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modale de confirmation -->
+    <div id="confirmModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Confirmer la suppression</h3>
+            <p>Êtes-vous sûr de vouloir supprimer cette entrée ?</p>
+            <div class="modal-actions">
+                <button id="confirmDelete" class="btn danger">Supprimer</button>
+                <button id="cancelDelete" class="btn secondary">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
